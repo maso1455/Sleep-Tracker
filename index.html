@@ -1,95 +1,79 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2487.2">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sleep Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .button {
+            padding: 10px;
+            color: white;
+            border-radius: 9999px;
+            cursor: pointer;
+            font-size: 12px;
+            font-family: Inter;
+        }
+        .no-sleep { background: #D7432E; }
+        .poor-sleep { background: #FFB300; }
+        .good-sleep { background: #009755; }
+        .pill-sleep { background: #166CED; }
+        .submit-button {
+            width: 253px;
+            height: 38px;
+            background: #9B9B9B;
+            border-radius: 10px;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Sleep Tracker&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>body { font-family: Arial, sans-serif; text-align: center; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.button-container {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>justify-content: space-between;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin: 20px 0;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 9999px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-family: Inter;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.no-sleep { background: #D7432E; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.poor-sleep { background: #FFB300; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.good-sleep { background: #009755; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.pill-sleep { background: #166CED; }</p>
-<p class="p1"><span class="Apple-converted-space">        </span>.submit-button {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>width: 253px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>height: 38px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>background: #9B9B9B;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-size: 12px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>font-weight: 700;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>margin-top: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Sleep Tracker&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="date"&gt;&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Sleep Quality Buttons --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="button-container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="button no-sleep" onclick="submitData('No Sleep')"&gt;No Sleep&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="button poor-sleep" onclick="submitData('Poor Sleep')"&gt;Poor Sleep&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="button good-sleep" onclick="submitData('Good Sleep')"&gt;Good Sleep&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="button pill-sleep" onclick="submitData('Sleeping Pill')"&gt;Sleeping Pill&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;!-- Submit Button --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="submit-button" onclick="submitData()"&gt;Submit&lt;/button&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Display the current date</p>
-<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("date").innerText = new Date().toLocaleDateString();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>// Function to send the data to Google Sheets</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function submitData(sleepQuality) {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const date = new Date().toLocaleDateString();</p>
-<p class="p1"><span class="Apple-converted-space">            </span>fetch('https://script.google.com/macros/s/AKfycbzpRS0Vmabad4a51glF7bgL77tAHwCuKiPzPWeCE1KdeIL4aCYmILsi3GadY1rQecJo/exec', {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">                </span>headers: {</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>'Content-Type': 'application/json'</p>
-<p class="p1"><span class="Apple-converted-space">                </span>},</p>
-<p class="p1"><span class="Apple-converted-space">                </span>body: JSON.stringify({</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>date: date,</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>sleepQuality: sleepQuality</p>
-<p class="p1"><span class="Apple-converted-space">                </span>})</p>
-<p class="p1"><span class="Apple-converted-space">            </span>})</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.then(response =&gt; response.text())</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.then(data =&gt; alert('Submission Successful: ' + data))</p>
-<p class="p1"><span class="Apple-converted-space">            </span>.catch(error =&gt; console.error('Error:', error));</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+    <h2>Sleep Tracker</h2>
+    <p id="date"></p>
+
+    <!-- Sleep Quality Buttons -->
+    <div class="button-container">
+        <button class="button no-sleep" onclick="submitData('No Sleep')">No Sleep</button>
+        <button class="button poor-sleep" onclick="submitData('Poor Sleep')">Poor Sleep</button>
+        <button class="button good-sleep" onclick="submitData('Good Sleep')">Good Sleep</button>
+        <button class="button pill-sleep" onclick="submitData('Sleeping Pill')">Sleeping Pill</button>
+    </div>
+
+    <!-- Submit Button -->
+    <button class="submit-button" onclick="submitData()">Submit</button>
+
+    <script>
+        // Display the current date
+        document.getElementById("date").innerText = new Date().toLocaleDateString();
+
+        // Function to send the data to Google Sheets
+        function submitData(sleepQuality) {
+            const date = new Date().toLocaleDateString();
+            fetch('https://script.google.com/macros/s/AKfycbzpRS0Vmabad4a51glF7bgL77tAHwCuKiPzPWeCE1KdeIL4aCYmILsi3GadY1rQecJo/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    date: date,
+                    sleepQuality: sleepQuality
+                })
+            })
+            .then(response => response.text())
+            .then(data => alert('Submission Successful: ' + data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+
 </body>
 </html>
