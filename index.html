@@ -66,18 +66,18 @@
 
             // Sending the POST request to Google Apps Script Web App
             fetch('https://script.google.com/macros/s/AKfycbzpRS0Vmabad4a51glF7bgL77tAHwCuKiPzPWeCE1KdeIL4aCYmILsi3GadY1rQecJo/exec', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    date: date,
-                    sleepQuality: sleepQuality
-                }),
-            })
-            .then(response => response.text())
-            .then(data => alert('Submission Successful: ' + data))
-            .catch(error => console.error('Error:', error));
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        date: new Date().toLocaleDateString(),
+        sleepQuality: sleepQuality // This will be one of 'No Sleep', 'Poor Sleep', etc.
+    })
+})
+.then(response => response.text())
+.then(data => alert('Submission Successful: ' + data))
+.catch(error => console.error('Error:', error));
         }
     </script>
 
