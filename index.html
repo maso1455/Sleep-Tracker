@@ -53,33 +53,33 @@
     <button class="submit-button" onclick="submitData()">Submit</button>
 
     <script>
-  // Function to send the data to Google Sheets
-  function submitData(sleepQuality) {
-    const date = new Date().toLocaleDateString();
-    fetch('https://script.google.com/macros/s/AKfycbzpRS0Vmabad4a51glF7bgL77tAHwCuKiPzPWeCE1KdeIL4aCYmILsi3GadY1rQecJo/exec', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        date: date,
-        sleepQuality: sleepQuality
-      })
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Request failed with status ' + response.status);
-      }
-      return response.text();
-    })
-    .then(data => alert('Submission Successful: ' + data))
-    .catch(error => {
-      console.error('Error:', error);
-      alert('An error occurred while submitting the data.');
-    });
-  }
-</script>
+        // Display the current date
+        document.getElementById("date").innerText = new Date().toLocaleDateString();
 
+        // Function to send the data to Google Sheets
+        function submitData(sleepQuality) {
+            const date = new Date().toLocaleDateString();
+            if (!sleepQuality) {
+                alert('Please select your sleep quality');
+                return;
+            }
+
+            // Sending the POST request to Google Apps Script Web App
+            fetch('https://script.google.com/macros/s/AKfycbzpRS0Vmabad4a51glF7bgL77tAHwCuKiPzPWeCE1KdeIL4aCYmILsi3GadY1rQecJo/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    date: date,
+                    sleepQuality: sleepQuality
+                }),
+            })
+            .then(response => response.text())
+            .then(data => alert('Submission Successful: ' + data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 
 </body>
 </html>
